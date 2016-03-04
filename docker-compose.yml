@@ -1,0 +1,13 @@
+version: '2'
+services:
+  nginx:
+    build: nginx/
+    ports:
+     - "5000:80"
+    volumes:
+     - /code/testUx:/var/www/html
+     - /etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+    depends_on:
+     - redis
+  redis:
+    image: redis

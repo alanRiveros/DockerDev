@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y php5-fpm php5-json php5-intl php5-mysqlnd
+MAINTAINER Alan Riveros <alan.gabriel.riveros@gmail.com>
+RUN apt-get update && apt-get install -y php5-fpm php5-json php5-intl php5-mysqlnd php5-imagick php5-gd php5-curl
 
 ADD entrypoint.sh /entrypoint.sh
 
