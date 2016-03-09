@@ -9,10 +9,6 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-
-ADD runFpm.sh /runFpm.sh
-RUN chmod +x /runFpm.sh
-
 #Install php-fpm
 RUN apt-get update && apt-get install -y php5-fpm php5-json php5-intl php5-mysqlnd php5-imagick php5-gd php5-curl
 
@@ -31,8 +27,7 @@ WORKDIR /etc/nginx
 
 
 # Define default command.
-CMD ["/runFpm.sh"]
-
+CMD service php5-fpm start && nginx
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
