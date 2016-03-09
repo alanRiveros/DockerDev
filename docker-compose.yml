@@ -5,8 +5,8 @@ services:
     ports:
      - "5000:80"
     volumes:
-     - /code/testUx:/var/www/html
-     - /etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+     - /code/phpinfo:/var/www/html
+     - /etc/nginx/sites-available:/etc/nginx/sites-enabled
     depends_on:
      - redis
   redis:
