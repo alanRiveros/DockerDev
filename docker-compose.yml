@@ -27,7 +27,7 @@ services:
         MYSQL_USER: "alan"
         MYSQL_PASSWORD: "abc789"
   elastic:
-    image: elasticsearch
+    build: elastic
     ports:
         - "9200:9200"
         - "9300:9300"
