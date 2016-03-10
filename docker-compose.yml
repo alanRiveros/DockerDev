@@ -9,6 +9,12 @@ services:
      - /code/DockerDev/nginx/sites-available/:/etc/nginx/sites-enabled
     depends_on:
      - redis
+     - db
+     - elastic
+    links:
+        - redis
+        - db
+        - elastic
   redis:
     image: redis
   db:
@@ -20,3 +26,8 @@ services:
         MYSQL_ROOT_PASSWORD: "root"
         MYSQL_USER: "alan"
         MYSQL_PASSWORD: "abc789"
+  elastic:
+    image: elasticsearch
+    ports:
+        - "9200:9200"
+        - "9300:9300"
